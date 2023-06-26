@@ -17,7 +17,7 @@ class Program
       string[] sangucheVariedad = new string[] { "SIMPLE", "DOBLE", "TRIPLE" };
       int[] sangucheTotalGusto = new int[FILAS_MATRIZ];
       string consultarSanguche;
-      int consultarIndice;
+      int consultarIndice, totalSanguches, minVentas, minVentasIndice;
 
 
 
@@ -38,18 +38,13 @@ class Program
 
       //hacer calculos
       SumarGustoSanguche(matrizSanguches, sangucheTotalGusto);
-
-
       MostrarMatriz(matrizSanguches, sanguchegusto, sangucheVariedad);
-
 
       for (int j = 0; j < sangucheTotalGusto.Length; j++)
       {
          Console.WriteLine($"{sanguchegusto[j]}: {sangucheTotalGusto[j]}");
       }
-      //mostrar datos
-
-
+      
       consultarSanguche = IngresarString(MSJE_INGRESO_GUSTO);
 
       consultarIndice = IndexArray(consultarSanguche, sanguchegusto);
@@ -60,12 +55,36 @@ class Program
          consultarIndice = IndexArray(consultarSanguche, sanguchegusto);
       }
 
+      totalSanguches = SumarArray(sangucheTotalGusto);
+      minVentas = MinValueArray(sangucheTotalGusto);
 
-      Console.WriteLine(consultarIndice);
+      minVentasIndice = IndexArray(minVentas, sangucheTotalGusto);
+
+         //mostrar datos
       Console.WriteLine($"El total de sanguche de {sanguchegusto[consultarIndice]} fue: {sangucheTotalGusto[consultarIndice]}");
+      Console.WriteLine($"El sanguche menos vendido fue {sanguchegusto[minVentasIndice]} con {minVentas} ventas");
+      Console.WriteLine($"Se vendieron {totalSanguches} sanguches en total");
+   }
+
+   static int MinValueArray(int[] arreglo)
+   {
+      return arreglo.Min();
+   }
+   static int SumarArray(int[] arreglo)
+   {
+      int total = 0;
+      for (int i = 0; i < arreglo.Length; i++)
+      {
+         total += arreglo[i];
+      }
+      return total;
 
    }
 
+   static int IndexArray(int valor, int[] arrgelo)
+   {
+      return Array.IndexOf(arrgelo, valor);
+   }
    static int IndexArray(string valor, string[] arrgelo)
    {
       return Array.IndexOf(arrgelo, valor);
