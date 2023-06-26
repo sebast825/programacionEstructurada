@@ -1,0 +1,15 @@
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\BarcosSimulacroSegundoParcial.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\BarcosSimulacroSegundoParcial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\BarcosSimulacroSegundoParcial.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\BarcosSimulacroSegundoParcial.AssemblyInfo.cs
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\BarcosSimulacroSegundoParcial.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\bin\Debug\net7.0\BarcosSimulacroSegundoParcial.exe
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\bin\Debug\net7.0\BarcosSimulacroSegundoParcial.deps.json
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\bin\Debug\net7.0\BarcosSimulacroSegundoParcial.runtimeconfig.json
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\bin\Debug\net7.0\BarcosSimulacroSegundoParcial.dll
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\bin\Debug\net7.0\BarcosSimulacroSegundoParcial.pdb
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\BarcosSimulacroSegundoParcial.dll
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\refint\BarcosSimulacroSegundoParcial.dll
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\BarcosSimulacroSegundoParcial.pdb
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\BarcosSimulacroSegundoParcial.genruntimeconfig.cache
+C:\Users\Sebastian\Desktop\Programacion\BarcosSimulacroSegundoParcial\obj\Debug\net7.0\ref\BarcosSimulacroSegundoParcial.dll

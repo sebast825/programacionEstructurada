@@ -1,0 +1,147 @@
+namespace BatallaNavalTema1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            const string MJE_INGRESO_FILAS = "Ingrese la cantidad de filas del tablero:";
+            const string MJE_ERROR_FILAS = "Debe ingresar al menos 2 filas. Vuelva a ingresar:";
+            const string MJE_INGRESO_COLUMNAS = "Ingrese la cantidad de columnas del tablero:";
+            const string MJE_ERROR_COLUMNAS = "Debe ingresar al menos 2 columnas. Vuelva a ingresar:";
+            const string MJE_INGRESO_BARCOS = "Ingrese la cantidad de barcos a ubicar:";
+            const string MJE_ERROR_BARCOS = "La cantidad de barcos debe estar entre 1 y el total de posiciones del tablero. Vuelva a ingresar:";
+            const string MJE_INGRESO_POSICION = "Ingrese una posicion para jugar: ";
+            const string MJE_ERROR_POSICION = "La posicion ingresada es invalida.";
+            const string MJE_ERROR_JUGADA = "La posicion ingresada ya ha sido jugada anteriormente.";
+            const int MIN_COLUMNAS = 2;
+            const int MIN_FILAS = 2;
+            const int MIN_BARCOS = 1;
+            const int BARCO = 1;
+            const int BARCO_HUNDIDO = -1;
+            const int AGUA_TOCADA = 2;
+
+            int cantFilas, cantColumnas, cantBarcos, jugadas = 0;
+            cantFilas = IngresarEntero(MJE_INGRESO_FILAS, MJE_ERROR_FILAS, MIN_FILAS);
+            cantColumnas = IngresarEntero(MJE_INGRESO_COLUMNAS, MJE_ERROR_COLUMNAS, MIN_COLUMNAS);
+            int[,] tablero = new int[cantFilas, cantColumnas];
+            cantBarcos = IngresarEntero(MJE_INGRESO_BARCOS, MJE_ERROR_BARCOS, MIN_BARCOS, tablero.Length);
+
+            CargarBarcos(tablero, cantBarcos, BARCO);
+            while (cantBarcos > 0)
+            {
+                if(Jugar(tablero, MJE_INGRESO_POSICION, MJE_ERROR_POSICION, MJE_ERROR_JUGADA, BARCO, BARCO_HUNDIDO, AGUA_TOCADA))
+                {
+                    cantBarcos--;
+                }
+                jugadas++;
+            }
+            Console.WriteLine($"Todos los barcos han sido hundidos. Se utilizaron {jugadas} intentos.");
+        }
+        static int IngresarEntero(string mensaje, string mjeError = "", int min = int.MinValue, int max = int.MaxValue)
+        {
+            Console.Write(mensaje);
+            int ingreso = int.Parse(Console.ReadLine());
+            while (ingreso < min || ingreso > max)
+            {
+                Console.Write(mjeError);
+                ingreso = int.Parse(Console.ReadLine());
+            }
+            return ingreso;
+        }
+        static void CargarBarcos(int[,] tablero, int cantBarcos, int barco)
+        {
+            Random rnd = new Random();
+            int i = 0, fila, columna;
+
+            while (i < cantBarcos)
+            {
+                fila = rnd.Next(tablero.GetLength(0));
+                columna = rnd.Next(tablero.GetLength(1));
+                if (!TieneBarco(tablero, fila, columna, barco))
+                {
+                    tablero[fila, columna] = barco;
+                    i++;
+                }
+            }
+        }
+        static void MostrarTablero(int[,] tablero, int aguaTocada, int barcoHundido)
+        {
+            for (int i = 0; i < tablero.GetLength(0); i++)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write($"FILA {i} -->\t");
+                Console.ResetColor();
+                for (int j = 0; j < tablero.GetLength(1); j++)
+                {
+                    if (tablero[i, j] == barcoHundido)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write($"H "); //Barco Hundido
+                        Console.ResetColor();
+                    }
+                    else if(tablero[i, j] == aguaTocada)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write($"A ", -11); //Agua Tocada
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.Write("? "); //Aun no se exploró esa posición.
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+        static bool Jugar(int[,] tablero, string mensaje, string errorPosicion,string errorJugada, int barco,int barcoHundido, int aguaTocada)
+        {
+            int posicion, fila, columna;
+            bool posicionYaJugada, hundido = false;
+            MostrarTablero(tablero, aguaTocada, barcoHundido);
+            do
+            {
+                posicion = IngresarEntero(mensaje);
+                fila = GetFila(posicion);
+                columna = GetColumna(posicion);
+
+                while (fila < 0 || fila >= tablero.GetLength(0) || columna < 0 || columna >= tablero.GetLength(1))
+                {
+                    Console.WriteLine(errorPosicion);
+                    posicion = IngresarEntero(mensaje);
+                    fila = GetFila(posicion);
+                    columna = GetColumna(posicion);
+                }
+                posicionYaJugada = tablero[fila, columna] == aguaTocada || tablero[fila, columna] == barcoHundido;
+                if (posicionYaJugada)
+                {
+                    Console.WriteLine(errorJugada);
+                }
+            } while (posicionYaJugada);
+
+            if(TieneBarco(tablero, fila, columna, barco)) //Si existe un barco, lo hundo
+            {
+                tablero[fila, columna] = barcoHundido;
+                hundido = true;
+            }
+            else
+            {
+                tablero[fila, columna] = aguaTocada;
+            }
+            return hundido;
+        }
+        static int GetFila(int posicion)
+        {
+            return posicion / 10;
+        }
+        static int GetColumna(int posicion)
+        {
+            return posicion % 10;
+        }
+        static bool TieneBarco(int[,] tablero, int fila, int columna, int barco)
+        {
+            return tablero[fila, columna] == barco;
+        }
+    }
+}
+Program(3).cs
+Mostrando Program(3).cs

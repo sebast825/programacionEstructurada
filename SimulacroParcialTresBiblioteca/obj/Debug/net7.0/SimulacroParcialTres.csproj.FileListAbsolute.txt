@@ -1,0 +1,15 @@
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\bin\Debug\net7.0\SimulacroParcialTres.exe
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\bin\Debug\net7.0\SimulacroParcialTres.deps.json
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\bin\Debug\net7.0\SimulacroParcialTres.runtimeconfig.json
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\bin\Debug\net7.0\SimulacroParcialTres.dll
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\bin\Debug\net7.0\SimulacroParcialTres.pdb
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\SimulacroParcialTres.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\SimulacroParcialTres.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\SimulacroParcialTres.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\SimulacroParcialTres.AssemblyInfo.cs
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\SimulacroParcialTres.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\SimulacroParcialTres.dll
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\refint\SimulacroParcialTres.dll
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\SimulacroParcialTres.pdb
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\SimulacroParcialTres.genruntimeconfig.cache
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialTres\obj\Debug\net7.0\ref\SimulacroParcialTres.dll

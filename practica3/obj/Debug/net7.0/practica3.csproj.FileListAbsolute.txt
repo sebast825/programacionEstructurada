@@ -1,0 +1,15 @@
+C:\Users\Sebastian\Desktop\Programacion\practica3\bin\Debug\net7.0\practica3.exe
+C:\Users\Sebastian\Desktop\Programacion\practica3\bin\Debug\net7.0\practica3.deps.json
+C:\Users\Sebastian\Desktop\Programacion\practica3\bin\Debug\net7.0\practica3.runtimeconfig.json
+C:\Users\Sebastian\Desktop\Programacion\practica3\bin\Debug\net7.0\practica3.dll
+C:\Users\Sebastian\Desktop\Programacion\practica3\bin\Debug\net7.0\practica3.pdb
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\practica3.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\practica3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\practica3.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\practica3.AssemblyInfo.cs
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\practica3.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\practica3.dll
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\refint\practica3.dll
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\practica3.pdb
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\practica3.genruntimeconfig.cache
+C:\Users\Sebastian\Desktop\Programacion\practica3\obj\Debug\net7.0\ref\practica3.dll

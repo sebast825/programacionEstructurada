@@ -1,0 +1,261 @@
+﻿namespace Clase11;
+class Program
+{
+    static void Main(string[] args)
+    {
+        const string MJE_INGRESO_DNI = "Ingrese el DNI de la entrada #";
+        const string MJE_INGRESO_CANT_ENTRADAS = "Ingrese la cantidad de entradas a comprar (max. 6):";
+        const string ERROR_CANT_ENTRADAS_OPERACION = "Solo puede comprar entre 1 y 6 entradas. Vuelva a ingresar:";
+        const string MJE_TIPO_ASIGNACION_ASIENTOS = "Ingrese el metodo de asignacion de asientos [M: manual | A: automatico]:";
+        const string MJE_UBICACION_ASIENTO = "Ingrese un numero de dos digitos para indicar la posicion del asiento a elegir:";
+        const string MJE_ERROR_UBICACION = "La ubicacion ingresada es invalida.";
+        const string MJE_SIN_ENTRADAS = "No quedan mas entradas!";
+        const char TIPO_ASIGNACION_ASIENTOS_1 = 'M';
+        const char TIPO_ASIGNACION_ASIENTOS_2 = 'A';
+        const int MIN_ENTRADAS = 1;
+        const int MAX_ENTRADAS = 6;
+        const int FILAS_CINE = 5;
+        const int COLUMNAS_CINE = 6;
+        const double IMPORTE_ENTRADAS = 735;
+
+        int[,] sala = new int[FILAS_CINE, COLUMNAS_CINE];
+        int[] entradasVentaActual = new int[MAX_ENTRADAS];
+
+        int cantEntradasVta, codigoReserva = 0;
+        char tipoAsignacionAsiento;
+        double importe, promRecaudacion, total = 0;
+
+        while (HayEntradas(sala, 1)) //Verifico que haya al menos 1 entrada libre
+        {
+            cantEntradasVta = IngresarCantEntradas(MJE_INGRESO_CANT_ENTRADAS, ERROR_CANT_ENTRADAS_OPERACION, MIN_ENTRADAS, MAX_ENTRADAS, sala);
+            tipoAsignacionAsiento = IngresarCharConOpciones(MJE_TIPO_ASIGNACION_ASIENTOS,TIPO_ASIGNACION_ASIENTOS_1, TIPO_ASIGNACION_ASIENTOS_2);
+            codigoReserva++;
+
+            for (int i = 0; i < cantEntradasVta; i++)
+            {
+                entradasVentaActual[i] = IngresarEntero($"{MJE_INGRESO_DNI}{i+1}: "); //Guardo temporalmente los DNIs para luego asignarles los asientos
+            }
+
+            if(tipoAsignacionAsiento == TIPO_ASIGNACION_ASIENTOS_1)
+            {
+                //Asignación MANUAL
+                ReservarAsientosManual(sala, cantEntradasVta, entradasVentaActual, MJE_UBICACION_ASIENTO, MJE_ERROR_UBICACION);
+            }
+            else
+            {
+                //Asignación AUTOMÁTICA
+                ReservarAsientosAuto(sala, cantEntradasVta, entradasVentaActual);
+            }
+            importe = cantEntradasVta * IMPORTE_ENTRADAS;
+            total += importe;
+            Console.WriteLine($"Su codigo de reserva es: {codigoReserva}. Total a pagar: ${importe}");
+        }
+        promRecaudacion = CalcularPromedio(total, codigoReserva);
+        Console.WriteLine(MJE_SIN_ENTRADAS);
+        Console.WriteLine($"Se recaudo ${promRecaudacion} en promedio entre todas las ventas");
+
+    }
+
+    static bool HayEntradas(int[,] sala, int cantEntradas)
+    {
+        int i = 0, j, entradasLibres = 0;
+
+        while (i < sala.GetLength(0) && entradasLibres < cantEntradas)
+        {
+            j = 0;
+            while (j < sala.GetLength(1) && entradasLibres < cantEntradas)
+            {
+                if (sala[i, j] == 0) //Pregunto si el lugar que estoy analizando está vacio.
+                {
+                    entradasLibres++;
+                }
+                j++;
+            }
+            i++;
+        }
+        return cantEntradas == entradasLibres;
+    }
+    static int IngresarEntero(string mensaje, string mjeError = "", int min = int.MinValue, int max = int.MaxValue)
+    {
+        Console.Write(mensaje);
+        int ingreso = int.Parse(Console.ReadLine());
+        while (ingreso < min || ingreso > max)
+        {
+            Console.Write(mjeError);
+            ingreso = int.Parse(Console.ReadLine());
+        }
+        return ingreso;
+    }
+    static int IngresarCantEntradas(string mensaje, string mjeError, int minEntradas, int maxEntradas, int[,] sala){
+        int cantEntradas = IngresarEntero(mensaje, mjeError, minEntradas, maxEntradas);
+        while(!HayEntradas(sala, cantEntradas)){
+            Console.Write("No hay suficientes entrdas para realizar la venta.");
+            cantEntradas = IngresarEntero(mensaje, mjeError, minEntradas, maxEntradas);
+        }
+        return cantEntradas;
+    }
+    static char IngresarCharConOpciones(string mensaje, char opcion1, char opcion2)
+    {
+        Console.Write(mensaje);
+        char ingreso = char.ToUpper(char.Parse(Console.ReadLine()));
+        while (ingreso != opcion1 && ingreso != opcion2)
+        {
+            Console.Write($"ERROR! Debe ingresar {opcion1} o {opcion2}. Vuelva a ingresar:");
+            ingreso = char.ToUpper(char.Parse(Console.ReadLine()));
+        }
+        return ingreso;
+    }
+    static int IngresarUbicacion(string mjeIngreso, string errorUbicacion, int[,] sala)
+    {
+        int ubicacion = IngresarEntero(mjeIngreso);
+        int filaAsiento = GetFila(ubicacion);
+        int columnaAsiento = GetColumna(ubicacion);
+
+        while(filaAsiento < 0 || filaAsiento >= sala.GetLength(0) || columnaAsiento < 0 || columnaAsiento >= sala.GetLength(1))
+        {
+            Console.WriteLine(errorUbicacion);
+            ubicacion = IngresarEntero(mjeIngreso);
+            filaAsiento = GetFila(ubicacion);
+            columnaAsiento = GetColumna(ubicacion);
+        }
+        return ubicacion;
+    }
+    static void ReservarAsientosManual(int[,] sala, int cantAsientos, int[] espectadores, string mjeIngreso, string errorUbicacion)
+    {
+        int ubicacion, filaAsiento, columnaAsiento;
+        bool pudeReservar;
+
+        for (int i = 0; i < cantAsientos; i++){
+            MostrarAsientos(sala);
+
+            do
+            {
+                ubicacion = IngresarUbicacion(mjeIngreso, errorUbicacion, sala);
+                filaAsiento = GetFila(ubicacion);
+                columnaAsiento = GetColumna(ubicacion);
+                pudeReservar = ReservarAsiento(sala, filaAsiento, columnaAsiento, espectadores[i]);
+                if(!pudeReservar)//pudeReservar == false
+                {
+                    Console.WriteLine($"El asiento {ubicacion} se encuentra reservado.");
+                }
+
+            } while (!pudeReservar); 
+        }
+    }
+    static void ReservarAsientosAuto(int[,] sala, int cantAsientos, int[] espectadores)
+    {       
+        int fila = 0, columna, i;
+        bool asientosConsecutivosDisp = false;
+        int[] ubicacionesFila = new int[cantAsientos];
+        int[] ubicacionesColumna = new int[cantAsientos];
+
+        while (fila < sala.GetLength(0) && !asientosConsecutivosDisp)
+        {
+            columna = 0;
+            i = 0;
+            while (columna < sala.GetLength(1) && !asientosConsecutivosDisp)
+            {
+                if (!EstaOcupado(sala, fila, columna))
+                {
+                    ubicacionesFila[i] = fila;
+                    ubicacionesColumna[i] = columna;
+                    i++;
+                }
+                else
+                {
+                    i = 0;
+                }
+                asientosConsecutivosDisp = i >= cantAsientos;
+                columna++;
+            }
+            fila++;
+        }
+
+        if (asientosConsecutivosDisp)
+        {
+            for (int j = 0; j < cantAsientos; j++)
+            {
+                ReservarAsiento(sala, ubicacionesFila[j], ubicacionesColumna[j], espectadores[j]);
+            }
+        }
+        else
+        {
+            Console.WriteLine("No se ha podido realizar la asignacion automatica.\nSe asignaran donde se encuentre lugar...");
+            i = 0;
+            fila = 0;
+            while (fila < sala.GetLength(0) && i < cantAsientos)
+            {
+                columna = 0;
+                while (columna < sala.GetLength(1) && i < cantAsientos)
+                {
+                    if (!EstaOcupado(sala, fila, columna))
+                    {
+                        ReservarAsiento(sala, fila, columna, espectadores[i]);
+                        i++;
+                    }
+                    columna++;
+                }
+                fila++;
+            }
+        }  
+    }
+    static void MostrarAsientos(int[,] sala)
+    {
+        const string LEYENDA_OCUPADO = "RESERVADO";
+        const string LEYENDA_LIBRE = "LIBRE";
+
+        Console.WriteLine($"Sala de {sala.GetLength(0)}x{sala.GetLength(1)} | Cantidad total de asientos: {sala.Length}\n");
+        for (int i = 0; i < sala.GetLength(0); i++)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write($"FILA {i} -->\t");
+            Console.ResetColor();
+            for (int j = 0; j < sala.GetLength(1); j++)
+            {
+                Console.Write($"{i}{j}: ");
+                if (!EstaOcupado(sala, i, j))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(LEYENDA_LIBRE.PadRight(10));
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write(LEYENDA_OCUPADO.PadRight(10));
+                }
+                Console.ResetColor();
+                Console.Write("|");
+            }
+            Console.WriteLine();
+        }
+    }
+    static bool ReservarAsiento(int[,] sala, int fila, int columna, int espectador)
+    {
+        bool pudeReservar = false;
+
+        if(!EstaOcupado(sala, fila, columna))
+        {
+            sala[fila, columna] = espectador;
+            pudeReservar = true;
+            Console.WriteLine($"Se ha reservado el asiento {fila}{columna} exitosamente!");
+        }
+
+        return pudeReservar;
+    }
+    static bool EstaOcupado(int[,] sala, int fila, int columna)
+    {
+        return sala[fila, columna] != 0;
+    }
+    static double CalcularPromedio(double total, int cant)
+    {
+        return (double)total / cant;
+    }
+    static int GetFila(int ubicacion)
+    {
+        return ubicacion / 10;
+    }
+    static int GetColumna(int ubicacion)
+    {
+        return ubicacion % 10;
+    }
+}

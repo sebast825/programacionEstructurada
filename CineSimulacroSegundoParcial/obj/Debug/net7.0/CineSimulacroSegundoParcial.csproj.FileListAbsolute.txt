@@ -1,0 +1,15 @@
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\bin\Debug\net7.0\CineSimulacroSegundoParcial.exe
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\bin\Debug\net7.0\CineSimulacroSegundoParcial.deps.json
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\bin\Debug\net7.0\CineSimulacroSegundoParcial.runtimeconfig.json
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\bin\Debug\net7.0\CineSimulacroSegundoParcial.dll
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\bin\Debug\net7.0\CineSimulacroSegundoParcial.pdb
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\CineSimulacroSegundoParcial.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\CineSimulacroSegundoParcial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\CineSimulacroSegundoParcial.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\CineSimulacroSegundoParcial.AssemblyInfo.cs
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\CineSimulacroSegundoParcial.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\CineSimulacroSegundoParcial.dll
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\refint\CineSimulacroSegundoParcial.dll
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\CineSimulacroSegundoParcial.pdb
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\CineSimulacroSegundoParcial.genruntimeconfig.cache
+C:\Users\Sebastian\Desktop\Programacion\CineSimulacroSegundoParcial\obj\Debug\net7.0\ref\CineSimulacroSegundoParcial.dll

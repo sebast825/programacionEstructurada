@@ -1,0 +1,15 @@
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\bin\Debug\net7.0\SimulacroParcialUno.exe
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\bin\Debug\net7.0\SimulacroParcialUno.deps.json
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\bin\Debug\net7.0\SimulacroParcialUno.runtimeconfig.json
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\bin\Debug\net7.0\SimulacroParcialUno.dll
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\bin\Debug\net7.0\SimulacroParcialUno.pdb
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\SimulacroParcialUno.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\SimulacroParcialUno.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\SimulacroParcialUno.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\SimulacroParcialUno.AssemblyInfo.cs
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\SimulacroParcialUno.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\SimulacroParcialUno.dll
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\refint\SimulacroParcialUno.dll
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\SimulacroParcialUno.pdb
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\SimulacroParcialUno.genruntimeconfig.cache
+C:\Users\Sebastian\Desktop\Programacion\SimulacroParcialUno\obj\Debug\net7.0\ref\SimulacroParcialUno.dll
