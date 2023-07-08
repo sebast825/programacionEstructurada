@@ -33,10 +33,10 @@ class Program
       /*
             Console.WriteLine(AsientosDisponibles(sala));
 
-             cargaExitosa = cargarDniManual(sala, numFila(num), numColumna(num), 100);
+             cargaExitosa = CargarDniManual(sala, NumFila(num), NumColumna(num), 100);
             MostrarMatriz(sala);
             Console.WriteLine(AsientosDisponibles(sala));
-          bool asd =  cargarDniManual(sala, numFila(num), numColumna(num), 100);
+          bool asd =  CargarDniManual(sala, NumFila(num), NumColumna(num), 100);
           */
       cantEntradas = IngresarInt(MSJE_INGRESO_ENTRADAS, MSJE_ERROR_INGRESO_ENTRADAS, MIN_ENTRADAS, MAX_ENTRADAS);
 
@@ -50,14 +50,17 @@ class Program
          for (int i = 0; i < cantEntradas; i++)
          {
             posicionAsientoActual = IngresarInt(MSJE_INGRESO_MANUAL, MSJE_ERROR_INGRESO_MANUAL, 0, 45);
-            cargaExitosa = cargarDniManual(sala, numFila(posicionAsientoActual), numColumna(posicionAsientoActual), 100);
+            cargaExitosa = IsPosicionLibre(sala, NumFila(posicionAsientoActual), NumColumna(posicionAsientoActual));
+
             while (!cargaExitosa)
             {
-                Console.WriteLine("Posicion no valida, intente nuevamente: ");
+               Console.WriteLine("Posicion no valida, intente nuevamente: ");
                posicionAsientoActual = IngresarInt(MSJE_INGRESO_MANUAL, MSJE_ERROR_INGRESO_MANUAL, 0, 45);
 
-               cargaExitosa = cargarDniManual(sala, numFila(posicionAsientoActual), numColumna(posicionAsientoActual), 100);
+               cargaExitosa = IsPosicionLibre(sala, NumFila(posicionAsientoActual), NumColumna(posicionAsientoActual));
             }
+            CargarDniManual(sala, NumFila(posicionAsientoActual), NumColumna(posicionAsientoActual), dniIngresado[i]);
+
             cargaExitosa = false;
          }
       }
@@ -80,18 +83,16 @@ class Program
    }
 
 
-
-   static bool cargarDniManual(int[,] array, int posFila, int posColumna, int dni)
+   static bool IsPosicionLibre(int[,] array, int posFila, int posColumna)
    {
-      if (array[posFila, posColumna] == 0)
-      {
-         array[posFila, posColumna] = dni;
-         return true;
-      }
-      else
-      {
-         return false;
-      }
+      return array[posFila, posColumna] == 0 ? true : false;
+
+   }
+   static void CargarDniManual(int[,] array, int posFila, int posColumna, int dni)
+   {
+
+      array[posFila, posColumna] = dni;
+
    }
    static char IngresarChar(string msje, string msjeError, char opcionUno, char opcionDos)
    {
@@ -115,8 +116,6 @@ class Program
       while (numero < min || numero > max)
       {
          Console.Write(msjeError);
-         Console.WriteLine("INT");
-
          numero = int.Parse(Console.ReadLine());
       }
       return numero;
@@ -158,11 +157,11 @@ class Program
 
    }
 
-   static int numFila(int numero)
+   static int NumFila(int numero)
    {
       return numero / 10;
    }
-   static int numColumna(int numero)
+   static int NumColumna(int numero)
    {
       return numero % 10;
    }
