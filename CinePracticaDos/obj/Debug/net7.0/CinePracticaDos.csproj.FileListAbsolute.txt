@@ -1,0 +1,15 @@
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\bin\Debug\net7.0\CinePracticaDos.exe
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\bin\Debug\net7.0\CinePracticaDos.deps.json
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\bin\Debug\net7.0\CinePracticaDos.runtimeconfig.json
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\bin\Debug\net7.0\CinePracticaDos.dll
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\bin\Debug\net7.0\CinePracticaDos.pdb
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\CinePracticaDos.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\CinePracticaDos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\CinePracticaDos.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\CinePracticaDos.AssemblyInfo.cs
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\CinePracticaDos.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\CinePracticaDos.dll
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\refint\CinePracticaDos.dll
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\CinePracticaDos.pdb
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\CinePracticaDos.genruntimeconfig.cache
+C:\Users\Sebastian\Desktop\Programacion\CinePracticaDos\obj\Debug\net7.0\ref\CinePracticaDos.dll

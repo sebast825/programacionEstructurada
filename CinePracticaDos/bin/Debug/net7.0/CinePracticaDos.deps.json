@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "CinePracticaDos/1.0.0": {
+        "runtime": {
+          "CinePracticaDos.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CinePracticaDos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
