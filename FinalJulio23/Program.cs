@@ -15,10 +15,14 @@ class Program
       const int MAX_DPTOS = 5;
       const int CANT_MESES = 4;
       int cantDepartametos = 0;
-
-      int[,] consorcioExpensas = new int[cantDepartametos, CANT_MESES];
+      string[] meses = new string[] { "ENERO", "FEBRERO", "MARZO", "ABRIL" };
 
       cantDepartametos = IngresarEntero(MJE_INGRESO_CANT_DPTOS, MJE_ERROR_CANT_DPTOS, MIN_DPTOS, MAX_DPTOS);
+            int[,] consorcioExpensas = new int[cantDepartametos, CANT_MESES];
+
+      CargarExpensas(consorcioExpensas, meses, MJE_ERROR_MES);
+
+      MostrarMatriz(consorcioExpensas, meses);
       //TODO: Realizar el programa principal.
 
       /*
@@ -67,6 +71,22 @@ class Program
      /// <param name="mjeError">Mensaje a visualizar en caso de que el importe de las expensas sea menor a 0</param>*/
    static void CargarExpensas(int[,] expensas, string[] meses, string mjeError)
    {
+      const string MSJE_INGRESO_EXPENSAS = "Ingrese el valor de las expensas de {0}: ";
+      Console.WriteLine("hola");
+      for (int i = 0; i < expensas.GetLength(0); i++)
+      {
+         Console.Write($"\nDepartamento {i}");
+         Console.WriteLine(meses[i]);
+         string msjeIngresoExpensasMes = string.Format(MSJE_INGRESO_EXPENSAS, meses[i]);
+         for (int j = 0; j < expensas.GetLength(1); j++)
+         {
+            expensas[i, j] = IngresarEntero(msjeIngresoExpensasMes, mjeError, 0);
+         }
+
+
+      }
+            Console.WriteLine("hola");
+
       //TODO: Desarollar función.
    }
    /*  /// <summary>
@@ -102,4 +122,34 @@ class Program
       //TODO: Desarollar función. [BORRAR LINEA DE ABAJO]
       throw new NotImplementedException();
    }
+
+
+
+
+   static void MostrarMatriz(int[,] matriz, string[] meses)
+   {
+      Console.Write("             ");
+      foreach (string variedad in meses)
+      {
+         Console.Write($"{variedad}   ");
+
+      }
+      Console.WriteLine("        ");
+
+      for (int i = 0; i < matriz.GetLength(0); i++)
+      {
+         Console.Write($"Departamento{i} ");
+         for (int j = 0; j < matriz.GetLength(1); j++)
+         {
+            Console.Write($"     {matriz[i, j]}");
+            Console.Write("   ");
+
+         }
+         Console.WriteLine("");
+      }
+
+   }
+
+
+
 }
