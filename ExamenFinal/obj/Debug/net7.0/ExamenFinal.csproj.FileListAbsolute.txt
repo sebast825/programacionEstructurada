@@ -1,0 +1,15 @@
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\bin\Debug\net7.0\ExamenFinal.exe
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\bin\Debug\net7.0\ExamenFinal.deps.json
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\bin\Debug\net7.0\ExamenFinal.runtimeconfig.json
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\bin\Debug\net7.0\ExamenFinal.dll
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\bin\Debug\net7.0\ExamenFinal.pdb
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\ExamenFinal.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\ExamenFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\ExamenFinal.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\ExamenFinal.AssemblyInfo.cs
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\ExamenFinal.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\ExamenFinal.dll
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\refint\ExamenFinal.dll
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\ExamenFinal.pdb
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\ExamenFinal.genruntimeconfig.cache
+C:\Users\Sebastian\Desktop\Programacion\ExamenFinal\obj\Debug\net7.0\ref\ExamenFinal.dll
