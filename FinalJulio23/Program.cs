@@ -14,17 +14,25 @@ class Program
       const int MIN_DPTOS = 2;
       const int MAX_DPTOS = 5;
       const int CANT_MESES = 4;
-      int cantDepartametos = 0;
+
+      int cantDepartametos = 0, consultarMes = 0, expensasMes, totalExpensas, indiceDepartamentoMinExpensas;
+
       string[] meses = new string[] { "ENERO", "FEBRERO", "MARZO", "ABRIL" };
 
-      /*  cantDepartametos = IngresarEntero(MJE_INGRESO_CANT_DPTOS, MJE_ERROR_CANT_DPTOS, MIN_DPTOS, MAX_DPTOS);
-        int[,] consorcioExpensas = new int[cantDepartametos, CANT_MESES];
+      cantDepartametos = IngresarEntero(MJE_INGRESO_CANT_DPTOS, MJE_ERROR_CANT_DPTOS, MIN_DPTOS, MAX_DPTOS);
 
-        CargarExpensas(consorcioExpensas, meses, MJE_ERROR_MES);
+      int[,] consorcioExpensas = new int[cantDepartametos, CANT_MESES];
 
-        MostrarMatriz(consorcioExpensas, meses);*/
+      CargarExpensas(consorcioExpensas, meses, MJE_ERROR_EXPENSAS);
 
-      IngresarMes(MJE_INGRESO_MES, MJE_ERROR_MES, meses);
+      consultarMes = IngresarMes(MJE_INGRESO_MES, MJE_ERROR_MES, meses);
+      expensasMes = ObtenerExpensasXMes(consorcioExpensas, consultarMes);
+      totalExpensas = ObtenerTotalExpensas(consorcioExpensas);
+      indiceDepartamentoMinExpensas = ObtenerDptoMenosPago(consorcioExpensas);
+  
+      Console.WriteLine(MJE_FINAL_1, meses[consultarMes], expensasMes);
+      Console.WriteLine(MJE_FINAL_2, indiceDepartamentoMinExpensas);
+      Console.WriteLine(MJE_FINAL_3, totalExpensas);
       //TODO: Realizar el programa principal.
 
       /*
@@ -60,13 +68,14 @@ class Program
     /// <returns>Posición del mes encontrado en el array meses</returns>*/
    static int IngresarMes(string mensaje, string mjeError, string[] meses)
    {
-      Console.WriteLine(mensaje);
+      Console.Write($"\n{mensaje}");
       string posiIngresada = Console.ReadLine().ToUpper();
       int posicion = Array.IndexOf(meses, posiIngresada);
-      
+
       while (posicion == -1)
       {
          Console.WriteLine(mjeError);
+         Console.Write(mensaje);
          posiIngresada = Console.ReadLine().ToUpper();
          posicion = Array.IndexOf(meses, posiIngresada);
       }
@@ -87,11 +96,11 @@ class Program
 
       for (int i = 0; i < expensas.GetLength(0); i++)
       {
-         Console.Write($"\nDEPARTAMENTO  #{i}");
-         Console.WriteLine(meses[i]);
-         string msjeIngresoExpensasMes = string.Format(MSJE_INGRESO_EXPENSAS, meses[i]);
+         Console.WriteLine($"\nDEPARTAMENTO  #{i + 1}");
          for (int j = 0; j < expensas.GetLength(1); j++)
          {
+            string msjeIngresoExpensasMes = string.Format(MSJE_INGRESO_EXPENSAS, meses[j]);
+
             expensas[i, j] = IngresarEntero(msjeIngresoExpensasMes, mjeError, 0);
          }
 
@@ -107,8 +116,21 @@ class Program
      /// <returns>Sumatoria de las expensas del mes pasado como parámetro</returns>*/
    static int ObtenerExpensasXMes(int[,] expensas, int posiMes)
    {
-      //TODO: Desarollar función. [BORRAR LINEA DE ABAJO]
-      throw new NotImplementedException();
+      int sumadorExpensasMes = 0;
+      for (int i = 0; i < expensas.GetLength(0); i++)
+      {
+         for (int j = 0; j < expensas.GetLength(1); j++)
+         {
+            if (j == posiMes)
+            {
+               sumadorExpensasMes += expensas[i, j];
+            }
+         }
+
+
+      }
+      return sumadorExpensasMes;
+
    }
    /*   /// <summary>
       /// Permite obtener el importe total de expensas de todos los departamentos entre todos los meses
@@ -117,8 +139,18 @@ class Program
       /// <returns>Importe total de expensas entre todos los departamentos y meses</returns>*/
    static int ObtenerTotalExpensas(int[,] expensas)
    {
-      //TODO: Desarollar función. [BORRAR LINEA DE ABAJO]
-      throw new NotImplementedException();
+      int sumadorExpensas = 0;
+
+      for (int i = 0; i < expensas.GetLength(0); i++)
+      {
+         for (int j = 0; j < expensas.GetLength(1); j++)
+         {
+
+            sumadorExpensas += expensas[i, j];
+         }
+
+      }
+      return sumadorExpensas;
    }
    /*
    /// <summary>
@@ -129,37 +161,21 @@ class Program
    /// <returns>Número de departamento que menos expensas pagó</returns>*/
    static int ObtenerDptoMenosPago(int[,] expensas)
    {
-      //TODO: Desarollar función. [BORRAR LINEA DE ABAJO]
-      throw new NotImplementedException();
-   }
+      int[] expensasMes = new int[expensas.GetLength(0)];
+      int minExpensas, indexMinExpensas;
 
-
-
-
-   static void MostrarMatriz(int[,] matriz, string[] meses)
-   {
-      Console.Write("             ");
-      foreach (string variedad in meses)
+      for (int i = 0; i < expensas.GetLength(0); i++)
       {
-         Console.Write($"{variedad}   ");
-
-      }
-      Console.WriteLine("        ");
-
-      for (int i = 0; i < matriz.GetLength(0); i++)
-      {
-         Console.Write($"Departamento{i} ");
-         for (int j = 0; j < matriz.GetLength(1); j++)
+         for (int j = 0; j < expensas.GetLength(1); j++)
          {
-            Console.Write($"     {matriz[i, j]}");
-            Console.Write("   ");
-
+            expensasMes[i] += expensas[i, j];
          }
-         Console.WriteLine("");
       }
 
+      minExpensas = expensasMes.Min();
+      indexMinExpensas = Array.IndexOf(expensasMes, minExpensas);
+      return indexMinExpensas + 1;
+
    }
-
-
 
 }
